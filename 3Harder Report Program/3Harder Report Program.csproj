@@ -94,6 +94,12 @@
     <Compile Include="InfoForm.Designer.cs">
       <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewAccountForm.Designer.cs">
+      <DependentUpon>NewAccountForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProblemsPanelForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InfoForm.resx">
       <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewAccountForm.resx">
+      <DependentUpon>NewAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProblemsPanelForm.resx">
       <DependentUpon>ProblemsPanelForm.cs</DependentUpon>

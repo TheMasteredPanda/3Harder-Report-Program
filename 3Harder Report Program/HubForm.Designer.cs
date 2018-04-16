@@ -30,6 +30,7 @@
         {
             this.problems_button = new System.Windows.Forms.Button();
             this.report_button = new System.Windows.Forms.Button();
+            this.account_manager_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // problems_button
@@ -52,11 +53,22 @@
             this.report_button.UseVisualStyleBackColor = true;
             this.report_button.Click += new System.EventHandler(this.report_button_Click);
             // 
+            // account_manager_button
+            // 
+            this.account_manager_button.Location = new System.Drawing.Point(12, 306);
+            this.account_manager_button.Name = "account_manager_button";
+            this.account_manager_button.Size = new System.Drawing.Size(357, 141);
+            this.account_manager_button.TabIndex = 1;
+            this.account_manager_button.Text = "Account Manager";
+            this.account_manager_button.UseVisualStyleBackColor = true;
+            this.account_manager_button.Click += new System.EventHandler(this.account_manager_button_Click);
+            // 
             // HubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 310);
+            this.ClientSize = new System.Drawing.Size(375, 460);
+            this.Controls.Add(this.account_manager_button);
             this.Controls.Add(this.report_button);
             this.Controls.Add(this.problems_button);
             this.Name = "HubForm";
@@ -70,5 +82,6 @@
 
         private System.Windows.Forms.Button problems_button;
         private System.Windows.Forms.Button report_button;
+        private System.Windows.Forms.Button account_manager_button;
     }
 }

@@ -40,5 +40,17 @@ namespace _3Harder_Report_Program
             new ProblemsPanelForm().Show();
             Close();
         }
+
+        private void account_manager_button_Click(object sender, EventArgs e)
+        {
+            if (!DataManager.GetInstance().currentAccount.admin)
+            {
+                MessageBox.Show("You must be an admin to get access to this.");
+                return;
+            }
+
+            new AccountManager().Show();
+            Close();
+        }
     }
 }

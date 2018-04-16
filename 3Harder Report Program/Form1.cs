@@ -76,6 +76,7 @@ namespace _3Harder_Report_Program
             }
             
             manager.currentAccount = manager.accounts[username];
+            manager.currentAccount.active = true;
             username_box.Text = "";
             password_box.Text = "";
             new HubForm().Show();

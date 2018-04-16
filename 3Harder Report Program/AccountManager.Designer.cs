@@ -42,7 +42,7 @@
             // headerAdmin
             // 
             headerAdmin.Text = "Admin";
-            headerAdmin.Width = 196;
+            headerAdmin.Width = 358;
             // 
             // account_list
             // 
@@ -50,9 +50,11 @@
             this.headerName,
             this.headerPassword,
             headerAdmin});
+            this.account_list.FullRowSelect = true;
+            this.account_list.GridLines = true;
             this.account_list.Location = new System.Drawing.Point(12, 137);
             this.account_list.Name = "account_list";
-            this.account_list.Size = new System.Drawing.Size(620, 301);
+            this.account_list.Size = new System.Drawing.Size(939, 301);
             this.account_list.TabIndex = 0;
             this.account_list.UseCompatibleStateImageBehavior = false;
             this.account_list.View = System.Windows.Forms.View.Details;
@@ -61,12 +63,12 @@
             // headerName
             // 
             this.headerName.Text = "Name";
-            this.headerName.Width = 156;
+            this.headerName.Width = 113;
             // 
             // headerPassword
             // 
             this.headerPassword.Text = "Password";
-            this.headerPassword.Width = 243;
+            this.headerPassword.Width = 138;
             // 
             // remove_account_button
             // 
@@ -94,13 +96,13 @@
             this.make_admin_button.Name = "make_admin_button";
             this.make_admin_button.Size = new System.Drawing.Size(277, 47);
             this.make_admin_button.TabIndex = 3;
-            this.make_admin_button.Text = "Made Admin";
+            this.make_admin_button.Text = "Make Admin";
             this.make_admin_button.UseVisualStyleBackColor = true;
             this.make_admin_button.Click += new System.EventHandler(this.make_admin_button_Click);
             // 
             // revoke_admin_button
             // 
-            this.revoke_admin_button.Location = new System.Drawing.Point(355, 84);
+            this.revoke_admin_button.Location = new System.Drawing.Point(663, 12);
             this.revoke_admin_button.Name = "revoke_admin_button";
             this.revoke_admin_button.Size = new System.Drawing.Size(277, 47);
             this.revoke_admin_button.TabIndex = 4;
@@ -112,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 450);
+            this.ClientSize = new System.Drawing.Size(963, 450);
             this.Controls.Add(this.revoke_admin_button);
             this.Controls.Add(this.make_admin_button);
             this.Controls.Add(this.add_account_button);
