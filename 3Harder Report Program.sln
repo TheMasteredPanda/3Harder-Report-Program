@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3Harder Report Program", "3Harder Report Program\3Harder Report Program.csproj", "{9476B0E5-FD6D-472F-A071-9C4E25DB6B2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9476B0E5-FD6D-472F-A071-9C4E25DB6B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9476B0E5-FD6D-472F-A071-9C4E25DB6B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9476B0E5-FD6D-472F-A071-9C4E25DB6B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9476B0E5-FD6D-472F-A071-9C4E25DB6B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F988188-1DC5-4328-BB7E-BE9F8EE6544B}
+	EndGlobalSection
+EndGlobal
