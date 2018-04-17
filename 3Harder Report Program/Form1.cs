@@ -131,5 +131,20 @@ namespace _3Harder_Report_Program
         {
 
         }
+
+        private void help_button_Click(object sender, EventArgs e)
+        {
+            foreach(Form fc in Application.OpenForms)
+            {
+                if (!(fc is HelpForm))
+                {
+                    continue;
+                }
+
+                return;
+            }
+
+            new HelpForm().Show();
+        }
     }
 }

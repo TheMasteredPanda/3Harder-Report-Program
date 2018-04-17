@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.login_button = new System.Windows.Forms.Button();
             this.forgot_password_button = new System.Windows.Forms.Button();
+            this.help_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -91,11 +92,22 @@
             this.forgot_password_button.UseVisualStyleBackColor = true;
             this.forgot_password_button.Click += new System.EventHandler(this.forgot_password_button_Click);
             // 
+            // help_button
+            // 
+            this.help_button.Location = new System.Drawing.Point(217, 280);
+            this.help_button.Name = "help_button";
+            this.help_button.Size = new System.Drawing.Size(169, 53);
+            this.help_button.TabIndex = 6;
+            this.help_button.Text = "Help";
+            this.help_button.UseVisualStyleBackColor = true;
+            this.help_button.Click += new System.EventHandler(this.help_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 438);
+            this.Controls.Add(this.help_button);
             this.Controls.Add(this.forgot_password_button);
             this.Controls.Add(this.login_button);
             this.Controls.Add(this.label2);
@@ -118,6 +130,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.Button forgot_password_button;
+        private System.Windows.Forms.Button help_button;
     }
 }
 
