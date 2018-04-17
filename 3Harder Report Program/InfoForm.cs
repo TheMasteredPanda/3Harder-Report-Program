@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace _3Harder_Report_Program
 {
+    /**
+     * The Information Form. Used to display all the information on the selected report selected in ProblemsPanelForm.
+     **/
     public partial class InfoForm : Form
     {
         public InfoForm()
@@ -34,6 +37,23 @@ namespace _3Harder_Report_Program
             Console.WriteLine("Resolved Date: " + report.resolvedDate);
             resolved_date.Text = report.resolvedDate != -1 ? DateTime.FromBinary(report.resolvedDate).ToShortDateString() : "N/A";
             resolved_description_box.Text = report.resolvedDescription == null ? "N/A" : report.resolvedDescription;
+        }
+
+        /**
+         * Invoked when this form is closing.
+         * 
+         * Assigns value 'null' to DataManager#viewing. DataManager#viewing is a field that stores the report currently being viewed in a InfoForm.
+         **/
+        override
+        protected void OnClosing(CancelEventArgs e)
+        {
+            DataManager manager = DataManager.GetInstance();
+            manager.viewing = null;
+        }
+
+        private void resolved_description_box_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

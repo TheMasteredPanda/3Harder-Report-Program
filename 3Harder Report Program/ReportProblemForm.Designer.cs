@@ -86,6 +86,7 @@
             // 
             // priority_list
             // 
+            this.priority_list.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.priority_list.FormattingEnabled = true;
             this.priority_list.Items.AddRange(new object[] {
             "Low",
@@ -108,6 +109,7 @@
             // 
             // problem_type_list
             // 
+            this.problem_type_list.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.problem_type_list.FormattingEnabled = true;
             this.problem_type_list.Items.AddRange(new object[] {
             "Hardware",

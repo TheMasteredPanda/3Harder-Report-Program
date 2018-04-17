@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace _3Harder_Report_Program
 {
+    /**
+     * Form for managing accounts. Here you'll be able to create, delete, promote, and demote accounts.
+     **/
     public partial class AccountManager : Form
     {
         public AccountManager()
@@ -27,6 +30,11 @@ namespace _3Harder_Report_Program
 
         }
 
+        /**
+         * Invoked when the 'Make Admin' button is clicked.
+         * 
+         * Makes a standard account an admin account.
+         **/
         private void make_admin_button_Click(object sender, EventArgs e)
         {
             DataManager manager = DataManager.GetInstance();
@@ -44,6 +52,11 @@ namespace _3Harder_Report_Program
             RefreshAccountList();
         }
 
+        /**
+         * Invoked when the 'Remove Admin' button is clicked.
+         * 
+         * Demotes an admin account to a standard account.
+         **/
         private void revoke_admin_button_Click(object sender, EventArgs e)
         {
             DataManager manager = DataManager.GetInstance();
@@ -66,6 +79,11 @@ namespace _3Harder_Report_Program
             RefreshAccountList();
         }
 
+        /**
+         * Invoked when the 'Remove Account' button is clicked.
+         * 
+         * Removes an account from the system.
+         **/
         private void remove_account_button_Click(object sender, EventArgs e)
         {
             if (account_list.SelectedItems[0].SubItems[0] == null)
@@ -86,6 +104,11 @@ namespace _3Harder_Report_Program
             RefreshAccountList();
         }
 
+        /**
+         * Invoked when the 'Add Account' button is clicked.
+         * 
+         * Creates, and opens, a new instance of the 'NewAccountForm' form.
+         **/
         private void add_account_button_Click(object sender, EventArgs e)
         {
             foreach(Form f in Application.OpenForms)
@@ -101,6 +124,9 @@ namespace _3Harder_Report_Program
             new NewAccountForm().Show();
         }
 
+        /**
+         * Refreshes the list of content shown in the 'Account List'.
+         **/
         public void RefreshAccountList()
         {
             account_list.Items.Clear();
@@ -113,6 +139,17 @@ namespace _3Harder_Report_Program
                 subItem.Add(a.admin ? "yes" : "no");
                 account_list.Items.Add(item);
             }
+        }
+
+        /**
+         * Invoked when this form is closing.
+         * 
+         * Opens a new instance of HubForm when this form is closing.
+         **/
+        override
+        protected void OnClosing(CancelEventArgs e)
+        {
+            new HubForm().Show();
         }
     }
 }

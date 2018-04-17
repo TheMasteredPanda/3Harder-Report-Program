@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace _3Harder_Report_Program
 {
+    /**
+     * Form used to change a password of an user that has forgot his password.
+     **/
     public partial class ForgotPasswordForm : Form
     {
         private string username;
@@ -26,24 +29,38 @@ namespace _3Harder_Report_Program
 
         }
 
+        /**
+         * Invoked when the 'Username Box' content has been manipulated.
+         **/
         private void username_box_TextChanged(object sender, EventArgs e)
         {
             TextBox box = (TextBox)sender;
             username = box.Text;
         }
 
+        /**
+         * Invoked when the 'New Password Box' content has been manipulated.
+         **/
         private void password_box_TextChanged(object sender, EventArgs e)
         {
             TextBox box = (TextBox)sender;
             newPassword = box.Text;
         }
 
+        /**
+         * Invoked when the 'Admin Password Box' content has been manipulated.
+         **/
         private void admin_password_box_TextChanged(object sender, EventArgs e)
         {
             TextBox box = (TextBox)sender;
             adminPassword = box.Text;
         }
 
+        /**
+         * Invoked when the 'Reset' button has been clicked.
+         * 
+         * Resets the password of the account.
+         **/
         private void reset_button_Click(object sender, EventArgs e)
         {
             DataManager manager = DataManager.GetInstance();

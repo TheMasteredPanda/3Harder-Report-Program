@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace _3Harder_Report_Program
 {
+    /**
+     * Displays all stored reports.
+     **/
     public partial class ProblemsPanelForm : Form
     {
         public ProblemsPanelForm()
@@ -17,6 +20,11 @@ namespace _3Harder_Report_Program
             InitializeComponent();
         }
 
+        /**
+         * Invoked when the 'More Info' button is clicked.
+         * 
+         * Shows all the information on the selected report.
+         **/
         private void info_button_Click(object sender, EventArgs e)
         {
             if (reports_list.SelectedItems[0].SubItems[0] == null)
@@ -29,6 +37,11 @@ namespace _3Harder_Report_Program
             new InfoForm().Show();
         }
 
+        /**
+         * Invoked when button 'Delete' is clicked.
+         * 
+         * Deletea the selected report.
+         **/
         private void delete_button_Click(object sender, EventArgs e)
         {
             if (reports_list.SelectedItems[0].SubItems[0] == null)
@@ -42,9 +55,15 @@ namespace _3Harder_Report_Program
             RefreshReportList();
         }
 
+        /**
+          * Invoked when button 'Resolve' is clicked.
+          * 
+          * Allows an administrator to resolve a report. The main function of this being that if the
+          * problem occurs again another administrator can find the resolution of the problem.
+          **/
         private void resolve_button_Click(object sender, EventArgs e)
         {
-            if (reports_list.SelectedItems[0].SubItems[0] == null)
+            if (reports_list.SelectedItems[0] == null)
             {
                 MessageBox.Show("No report selected.");
                 return;
@@ -63,6 +82,12 @@ namespace _3Harder_Report_Program
             new ResolveForm().Show();
         }
 
+        /**
+         * Invoked when the button 'Refresh' is clicked.
+         * 
+         * Refreshes the report list. It sometimes required when a user submits a
+         * report and the problem panel is open.
+         **/
         private void refresh_button_Click(object sender, EventArgs e)
         {
             RefreshReportList();
@@ -91,6 +116,9 @@ namespace _3Harder_Report_Program
             RefreshReportList();
         }
 
+        /**
+         * An overridden method. WHen this form his closing a new instance of HubForm will be made. 
+         **/
         override
         protected void OnClosing(CancelEventArgs e)
         {

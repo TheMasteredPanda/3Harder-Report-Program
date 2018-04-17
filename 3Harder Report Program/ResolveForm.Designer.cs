@@ -34,7 +34,7 @@
             this.date = new System.Windows.Forms.TextBox();
             this.problem_type_box = new System.Windows.Forms.TextBox();
             this.priority_box = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.description_box = new System.Windows.Forms.TextBox();
             this.room_id_label = new System.Windows.Forms.Label();
             this.date_label = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
@@ -43,11 +43,13 @@
             this.description_label = new System.Windows.Forms.Label();
             this.resolved_description_box = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.time_box = new System.Windows.Forms.TextBox();
+            this.time_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // resolve_button
             // 
-            this.resolve_button.Location = new System.Drawing.Point(12, 433);
+            this.resolve_button.Location = new System.Drawing.Point(12, 501);
             this.resolve_button.Name = "resolve_button";
             this.resolve_button.Size = new System.Drawing.Size(195, 58);
             this.resolve_button.TabIndex = 0;
@@ -95,14 +97,14 @@
             this.priority_box.Size = new System.Drawing.Size(187, 38);
             this.priority_box.TabIndex = 5;
             // 
-            // textBox1
+            // description_box
             // 
-            this.textBox1.Location = new System.Drawing.Point(224, 49);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(541, 166);
-            this.textBox1.TabIndex = 6;
+            this.description_box.Location = new System.Drawing.Point(224, 49);
+            this.description_box.Multiline = true;
+            this.description_box.Name = "description_box";
+            this.description_box.ReadOnly = true;
+            this.description_box.Size = new System.Drawing.Size(541, 166);
+            this.description_box.TabIndex = 6;
             // 
             // room_id_label
             // 
@@ -163,7 +165,7 @@
             this.resolved_description_box.Location = new System.Drawing.Point(224, 278);
             this.resolved_description_box.Multiline = true;
             this.resolved_description_box.Name = "resolved_description_box";
-            this.resolved_description_box.Size = new System.Drawing.Size(541, 213);
+            this.resolved_description_box.Size = new System.Drawing.Size(541, 281);
             this.resolved_description_box.TabIndex = 13;
             this.resolved_description_box.TextChanged += new System.EventHandler(this.resolved_description_box_TextChanged);
             // 
@@ -176,11 +178,30 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Resolved Description";
             // 
+            // time_box
+            // 
+            this.time_box.Location = new System.Drawing.Point(12, 447);
+            this.time_box.Name = "time_box";
+            this.time_box.ReadOnly = true;
+            this.time_box.Size = new System.Drawing.Size(187, 38);
+            this.time_box.TabIndex = 15;
+            // 
+            // time_label
+            // 
+            this.time_label.AutoSize = true;
+            this.time_label.Location = new System.Drawing.Point(61, 412);
+            this.time_label.Name = "time_label";
+            this.time_label.Size = new System.Drawing.Size(78, 32);
+            this.time_label.TabIndex = 16;
+            this.time_label.Text = "Time";
+            // 
             // ResolveForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(777, 512);
+            this.ClientSize = new System.Drawing.Size(777, 642);
+            this.Controls.Add(this.time_label);
+            this.Controls.Add(this.time_box);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resolved_description_box);
             this.Controls.Add(this.description_label);
@@ -189,7 +210,7 @@
             this.Controls.Add(this.name_label);
             this.Controls.Add(this.date_label);
             this.Controls.Add(this.room_id_label);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.description_box);
             this.Controls.Add(this.priority_box);
             this.Controls.Add(this.problem_type_box);
             this.Controls.Add(this.date);
@@ -212,7 +233,7 @@
         private System.Windows.Forms.TextBox date;
         private System.Windows.Forms.TextBox problem_type_box;
         private System.Windows.Forms.TextBox priority_box;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox description_box;
         private System.Windows.Forms.Label room_id_label;
         private System.Windows.Forms.Label date_label;
         private System.Windows.Forms.Label name_label;
@@ -221,5 +242,7 @@
         private System.Windows.Forms.Label description_label;
         private System.Windows.Forms.TextBox resolved_description_box;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox time_box;
+        private System.Windows.Forms.Label time_label;
     }
 }

@@ -119,6 +119,7 @@
             this.resolved_description_box.ReadOnly = true;
             this.resolved_description_box.Size = new System.Drawing.Size(776, 205);
             this.resolved_description_box.TabIndex = 7;
+            this.resolved_description_box.TextChanged += new System.EventHandler(this.resolved_description_box_TextChanged);
             // 
             // resolved_box
             // 

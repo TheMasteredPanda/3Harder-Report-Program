@@ -9,8 +9,14 @@ using System.Windows.Forms;
 
 namespace _3Harder_Report_Program
 {
-
-
+    /**
+     * Data manager.
+     * 
+     * Manager for managing data.
+     * 
+     * The Manager stores all information in an SQLite database. It's primary function is 
+     * serializing, deserializing, and caching data in the respective table and dictionary.
+     **/
     class DataManager
     {
         private SQLiteConnection connection;
@@ -22,7 +28,15 @@ namespace _3Harder_Report_Program
         public Report viewing = null;
         private string idPrefix = "job-{0}";
         private int rowCount = 0;
-
+        
+        /**
+         * Constructor of the DataManager. Instantiated lazily.
+         *
+         * When the constructor is invoked. It will do the following things in the order they are written in:
+         * 1. Create a local database file is one doesn't exist in the programs working file.
+         * 2. Create the reports and accounts table if they do not exist.
+         * 3. Deserialize and cache both reports and accounts from the local database to the respective dictionary.
+         **/
         public DataManager()
         {
             if (!File.Exists(Directory.GetCurrentDirectory() + @"\data.db" )) 
@@ -104,6 +118,9 @@ namespace _3Harder_Report_Program
             return manager;
         }
 
+        /**
+         * Inserts a new report into the reports table and the dictionary, provided the report ID isn't already being used.
+         **/
         public void Insert(Report report)
         {
             rowCount++;
@@ -131,6 +148,9 @@ namespace _3Harder_Report_Program
             reports.Add(report.id, report);
         }
 
+        /**
+         * Removes a report from the reports table and the dictionary.
+         **/
         public void RemoveReport(string reportId)
         {
             if (reports.ContainsKey(reportId))
@@ -143,6 +163,9 @@ namespace _3Harder_Report_Program
             removeReport.ExecuteNonQuery();
         }
 
+        /**
+         * Updates a report with the resolution data.
+         **/
         public void Resolve(Report report)
         {
             if (reports.ContainsKey(report.id))
@@ -161,6 +184,9 @@ namespace _3Harder_Report_Program
             updateReport.ExecuteNonQuery();
         }
 
+        /**
+         * Adds a new account to the account table and it's respective dictionary.
+         **/
         public void AddAccount(Account account)
         {
             if (accounts.ContainsKey(account.username))
@@ -189,6 +215,9 @@ namespace _3Harder_Report_Program
             accounts.Add(account.username, account);
         }
 
+        /**
+         * Removes an account from the accounts table and the respective dictionary.
+         **/
         public void RemoveAccount(string username)
         {
             if (accounts.ContainsKey(username))
@@ -209,6 +238,9 @@ namespace _3Harder_Report_Program
             removeAccountCmd.ExecuteNonQuery();
         }
         
+        /**
+         * Used to either promote or demote an account to or from admin.
+         **/
         public void SetAdmin(string username, bool admin)
         {
             if (accounts.ContainsKey(username))
@@ -222,6 +254,9 @@ namespace _3Harder_Report_Program
             adminCmd.ExecuteNonQuery();
         }
 
+        /**
+         * Updates an accounts password.
+         **/
         public void ChangePassword(string username, string newPassword)
         {
             if (accounts.ContainsKey(username))
@@ -235,21 +270,33 @@ namespace _3Harder_Report_Program
             updateAccount.ExecuteNonQuery();
         }
 
+        /**
+         * Checks if the username inputted in the parameters is affiliated with an account on the system.
+         **/
         public bool IsAccountUsername(string username)
         {
             return accounts.ContainsKey(username);
         }
 
+        /**
+         * Checks if the username if affiliated with an account that has admin priviledges.
+         **/
         public bool IsAdmin(string username)
         {
             return accounts[username].admin;
         }
 
+        /**
+         * Checks if the password for an account is correct.
+         **/
         public bool IsPasswordCorrect(string username, string password)
         {
             return accounts[username].password.Equals(password);
         }
 
+        /**
+         * Checks if a password has already been taken by an account.
+         **/
         public bool IsPasswordTaken(string password)
         {
             foreach(Account a in accounts.Values)
@@ -266,6 +313,9 @@ namespace _3Harder_Report_Program
         }
     }
 
+    /**
+     * Template Data Class for storing information on one Report.
+     **/
     class Report
     {
         public String id;
@@ -296,16 +346,25 @@ namespace _3Harder_Report_Program
         }
     }
 
+    /**
+     * Problem Types.
+     **/
     enum ProblemType
     {
         HARDWARE, SOFTWARE, TELECOMMUNICATIONS
     }
 
+    /**
+     * The priority of a report.
+     **/
     enum Priority
     {
         HIGH, MEDIUM, LOW
     }
 
+    /**
+     * Template data class for storing all information on one account.
+     **/
     class Account
     {
         public string username;

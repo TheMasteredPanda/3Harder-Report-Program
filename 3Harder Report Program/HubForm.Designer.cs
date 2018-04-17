@@ -31,6 +31,7 @@
             this.problems_button = new System.Windows.Forms.Button();
             this.report_button = new System.Windows.Forms.Button();
             this.account_manager_button = new System.Windows.Forms.Button();
+            this.log_off_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // problems_button
@@ -63,11 +64,22 @@
             this.account_manager_button.UseVisualStyleBackColor = true;
             this.account_manager_button.Click += new System.EventHandler(this.account_manager_button_Click);
             // 
+            // log_off_button
+            // 
+            this.log_off_button.Location = new System.Drawing.Point(12, 453);
+            this.log_off_button.Name = "log_off_button";
+            this.log_off_button.Size = new System.Drawing.Size(357, 141);
+            this.log_off_button.TabIndex = 2;
+            this.log_off_button.Text = "Log off";
+            this.log_off_button.UseVisualStyleBackColor = true;
+            this.log_off_button.Click += new System.EventHandler(this.log_off_button_Click);
+            // 
             // HubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 460);
+            this.ClientSize = new System.Drawing.Size(375, 610);
+            this.Controls.Add(this.log_off_button);
             this.Controls.Add(this.account_manager_button);
             this.Controls.Add(this.report_button);
             this.Controls.Add(this.problems_button);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.Button problems_button;
         private System.Windows.Forms.Button report_button;
         private System.Windows.Forms.Button account_manager_button;
+        private System.Windows.Forms.Button log_off_button;
     }
 }

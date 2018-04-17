@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 namespace _3Harder_Report_Program
 {
+    /**
+     * The first form of the program.
+     * 
+     * The login form. Form that allows a user to login.
+     **/
     public partial class Form1 : Form
     {
         private String username;
@@ -20,18 +25,29 @@ namespace _3Harder_Report_Program
             InitializeComponent();
         }
 
+        /**
+         * Invoked when the 'Username Box' content is manipulated.
+         **/
         private void username_box_TextChanged(object sender, EventArgs e)
         {
             TextBox box = (TextBox)sender;
             username = box.Text;
         }
 
+        /**
+         * Invoked when the 'Password Box' content is manipulated.
+         **/
         private void password_box_TextChanged(object sender, EventArgs e)
         {
             TextBox box = (TextBox)sender;
             password = box.Text;
         }
 
+        /**
+         * Invoked when the 'Login Button' is clicked.
+         * 
+         * If the username and password is correct, it will log the player into that account on the system.
+         **/
         private void login_button_Click(object sender, EventArgs e)
         {
             DataManager manager = DataManager.GetInstance();
@@ -74,14 +90,26 @@ namespace _3Harder_Report_Program
             {
                 password_box.BackColor = Color.White;
             }
-            
-            manager.currentAccount = manager.accounts[username];
+
+            if (manager.currentAccount != null)
+            {
+                MessageBox.Show("Somebody is already logged in on this instance!");
+                return;
+            }
+
+            Account account = manager.accounts[username];
+            manager.currentAccount = account;
             manager.currentAccount.active = true;
             username_box.Text = "";
             password_box.Text = "";
             new HubForm().Show();
         }
 
+        /**
+         * Invoked when the 'Forgot Password?' button is invoked.
+         * 
+         * Creates a new instance of 'ForgotPasswordForm' form.
+         **/
         private void forgot_password_button_Click(object sender, EventArgs e)
         {
             FormCollection collection = Application.OpenForms;
@@ -97,6 +125,11 @@ namespace _3Harder_Report_Program
             }
 
             new ForgotPasswordForm().Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

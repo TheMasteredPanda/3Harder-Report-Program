@@ -10,12 +10,17 @@ using System.Windows.Forms;
 
 namespace _3Harder_Report_Program
 {
+    /**
+     * Form for making a report.
+     **/
     public partial class ReportProblemForm : Form
     {
         private Priority priority;
         private ProblemType type;
         private string roomId;
         private string description;
+        private Color descriptionColor = Color.White;
+
 
         public ReportProblemForm()
         {
@@ -33,6 +38,9 @@ namespace _3Harder_Report_Program
             new HubForm().Show();
         }
 
+        /**
+         * Event for the Room ID text box. Invoked upon manipulation of content.
+         **/
         private void room_id_box_TextChanged(object sender, EventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -47,11 +55,29 @@ namespace _3Harder_Report_Program
             roomId = box.Text;
         }
 
+        /**
+         * Invoked upon selection of priority.
+         **/
         private void priority_list_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 Enum.TryParse(priority_list.GetItemText(priority_list.SelectedItem).ToUpper(), out priority);
+
+                if (priority.Equals(Priority.HIGH))
+                {
+                    descriptionColor = Color.Red;
+                }
+                else if (priority.Equals(Priority.MEDIUM))
+                {
+                    descriptionColor = Color.Yellow;
+                }
+                else if (priority.Equals(Priority.LOW))
+                {
+                    descriptionColor = Color.Green;
+                }
+
+                description_box.BackColor = descriptionColor;
             }
             catch (ArgumentException ex)
             {
@@ -60,9 +86,13 @@ namespace _3Harder_Report_Program
                 return;
             }
 
-            priority_list.BackColor = Color.White;
+            problem_type_list.BackColor = Color.White;
         }
 
+
+        /**
+         * Invoked upon selection of a problem type.
+         **/
         private void problem_type_list_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -76,9 +106,11 @@ namespace _3Harder_Report_Program
                 return;
             }
 
-            problem_type_list.BackColor = Color.White;
         }
 
+        /**
+         * Event for the Description Box text box. Invoked upon manipulation of content.
+         **/
         private void description_box_TextChanged(object sender, EventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -90,11 +122,16 @@ namespace _3Harder_Report_Program
                 return;
             }
 
-            description_box.BackColor = Color.White;
+            description_box.BackColor = descriptionColor;
 
             description = box.Text;
         }
 
+        /**
+         * Event for the submit button. Invoked upon click of button.
+         * 
+         * Creates a report instance and saves it. 
+         **/
         private void submit_report_button_Click(object sender, EventArgs e)
         {
             DataManager manager = DataManager.GetInstance();

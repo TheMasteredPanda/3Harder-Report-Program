@@ -49,6 +49,7 @@
             // 
             this.password_box.Location = new System.Drawing.Point(18, 175);
             this.password_box.Name = "password_box";
+            this.password_box.PasswordChar = '*';
             this.password_box.Size = new System.Drawing.Size(328, 38);
             this.password_box.TabIndex = 1;
             this.password_box.TextChanged += new System.EventHandler(this.password_box_TextChanged);
@@ -57,6 +58,7 @@
             // 
             this.admin_password_box.Location = new System.Drawing.Point(17, 275);
             this.admin_password_box.Name = "admin_password_box";
+            this.admin_password_box.PasswordChar = '*';
             this.admin_password_box.Size = new System.Drawing.Size(328, 38);
             this.admin_password_box.TabIndex = 2;
             this.admin_password_box.TextChanged += new System.EventHandler(this.admin_password_box_TextChanged);
